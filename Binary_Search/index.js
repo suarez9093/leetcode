@@ -1,4 +1,4 @@
-var search = function (nums, target) {
+var binarySearch = function (nums, target) {
     let start = 0;
     let end = nums.length - 1
 
@@ -10,5 +10,6 @@ var search = function (nums, target) {
         if (currentNumber === target) return middle
     }
     return -1
-
 };
+
+module.exports = binarySearch

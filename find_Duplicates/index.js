@@ -1,15 +1,13 @@
 var findDuplicates = function (nums) {
+    let obj = {};
     let result = [];
-    let pointerOne = 0;
-    let pointerTwo = pointerOne + 1;
 
-    while (pointerOne <= nums.length - 2) {
-        if (nums[pointerOne] === nums[pointerTwo]) result.push(nums[pointerTwo]);
-        pointerTwo++
-        if (pointerTwo === nums.length) {
-            pointerOne++
-            pointerTwo = pointerOne + 1
-        }
+    for (let i = 0; i < nums.length; i++) {
+        obj[nums[i]] = (obj[nums[i]] || 0) + 1
     }
-    return result.sort((a, b) => a - b)
+
+    for (let key in obj) {
+        if (obj[key] > 1) result.push(parseInt(key))
+    }
+    return result;
 };
